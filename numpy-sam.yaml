@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Description: 'Lambda wrapper for numpy'
+
+Resources:
+##################################################################
+#
+#  Lambda function wrapping NumPy
+#
+##################################################################
+  NumpyWrapper:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Description: 'Wrapping NumPy'
+      Handler: 'handler.lambda_handler'
+      CodeUri: './code'
+      Runtime: 'python2.7'
+      Timeout: 30
+      MemorySize: 256
+      Environment:
+        Variables:
+          LOG_LEVEL: INFO

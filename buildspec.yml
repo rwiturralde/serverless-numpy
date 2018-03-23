@@ -1,0 +1,16 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - pip install --upgrade -t './code/lib' -r requirements.txt
+  build:
+    commands:
+      - aws cloudformation package --template-file numpy-sam.yaml --s3-bucket $S3_BUCKET --output-template-file packaged-template.yaml
+  post_build:
+    commands:
+      - aws cloudformation deploy --template-file packaged-template.yaml  --stack-name "NumpyWrapper" --capabilities CAPABILITY_IAM --region us-east-1
+artifacts:
+  type: zip
+  files:
+    - packaged-template.yaml
