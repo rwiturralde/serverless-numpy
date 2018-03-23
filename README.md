@@ -1,4 +1,4 @@
-# NumPy Wrapper
+# Serverless NumPy
 Simple [AWS Lambda](https://aws.amazon.com/lambda) function that wraps the popular python library, [NumPy](http://www.numpy.org/).
 
 ## Usage
