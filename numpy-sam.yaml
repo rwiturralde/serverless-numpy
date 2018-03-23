@@ -9,10 +9,10 @@ Resources:
 #  Lambda function wrapping NumPy
 #
 ##################################################################
-  NumpyWrapper:
+  ServerlessNumPy:
     Type: 'AWS::Serverless::Function'
     Properties:
-      Description: 'Wrapping NumPy'
+      Description: "Python's NumPy"
       Handler: 'handler.lambda_handler'
       CodeUri: './code'
       Runtime: 'python2.7'
